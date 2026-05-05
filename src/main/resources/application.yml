@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: outbox-demo
+
+  datasource:
+    username: myuser
+    password: secret
+    name: mydatabase

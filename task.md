@@ -40,6 +40,7 @@ payload (text)
 status (NEW, SENT, FAILED)
 retry_count
 created_at
+next_execute_time
 
 3. Транзакционность
 
@@ -65,3 +66,13 @@ FAILED при ошибке
 
 
 ![img.png](img.png)
+
+orderCreated and saved to db -> send_kafka_message -> payment_micro_service/notification_micro_service
+
+OUTBOX_TABLE
+sent_to_kafka | payload(order) | attempts | policy | error | error_type
+
+outbox_processor -> getTask() -> for each try to execute it
+
+
+outbox_kafka_processor -> getTask (send_to_kafka) -> callKafkaProducer()
