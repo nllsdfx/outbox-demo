@@ -62,3 +62,6 @@ created_at
 обновляет статус:
 SENT при успехе
 FAILED при ошибке
+
+
+![img.png](img.png)
