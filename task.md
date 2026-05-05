@@ -36,7 +36,7 @@ created_at
 Таблица outbox:
 id
 event_type
-payload (JSON)
+payload (text)
 status (NEW, SENT, FAILED)
 retry_count
 created_at
