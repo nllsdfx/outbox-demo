@@ -76,3 +76,23 @@ outbox_processor -> getTask() -> for each try to execute it
 
 
 outbox_kafka_processor -> getTask (send_to_kafka) -> callKafkaProducer()
+
+```sql
+create table orders
+(
+    id    serial not null primary key,
+    items text   not null
+);
+
+CREATE TABLE outbox
+(
+    id                serial       NOT NULL,
+    payload           text         NOT NULL,
+    type              varchar(255) NOT NULL,
+    status            VARCHAR(255) NOT NULL,
+    retry_count       INTEGER      NOT NULL default 0,
+    created_at        TIMESTAMP WITHOUT TIME ZONE,
+    next_execute_time TIMESTAMP WITHOUT TIME ZONE,
+    CONSTRAINT pk_outbox PRIMARY KEY (id)
+);
+```
